@@ -1,5 +1,6 @@
 /**
  * Newsletter - Email capture banner with simple form UX.
+ * Highlight the launch incentive to increase sign-ups.
  */
 
 import { Mail } from 'lucide-react'
@@ -22,13 +23,13 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="mx-auto max-w-7xl px-4 py-12">
+    <section id="newsletter" tabIndex={-1} className="mx-auto max-w-7xl px-4 py-12 scroll-mt-24 md:scroll-mt-28 outline-none">
       <div className="rounded-2xl bg-neutral-900 px-6 py-10 text-white">
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h3 className="text-xl font-bold">Get 10% off your first order</h3>
+            <h3 className="text-xl font-bold">Get 15% off your first order</h3>
             <p className="mt-1 text-sm text-neutral-200">
-              Join the highcountrygear.shop list for deals, trip tips, and gear drops. Unsubscribe anytime.
+              Join the list for deals, trip tips, and gear drops. Your welcome email includes the code: <b>ROCKIES15</b>.
             </p>
           </div>
           {!sent ? (
@@ -56,7 +57,7 @@ export default function Newsletter() {
               </div>
             </form>
           ) : (
-            <p className="text-sm font-semibold text-emerald-300">Thanks! Check your inbox to confirm.</p>
+            <p className="text-sm font-semibold text-emerald-300">Thanks! Check your inbox for your welcome code.</p>
           )}
         </div>
       </div>

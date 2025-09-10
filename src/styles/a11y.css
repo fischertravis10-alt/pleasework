@@ -1,0 +1,22 @@
+/* 
+  a11y.css
+  Purpose: Improve in-page anchor navigation clarity and motion comfort.
+  - Adds visible outline for :target elements (after hash navigation).
+  - Enables smooth scroll, respecting reduced-motion user preference.
+*/
+
+:target {
+  outline: 2px solid #2F5D3A;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for better context; disable for reduced-motion users */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

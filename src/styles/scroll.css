@@ -1,0 +1,16 @@
+/* 
+  scroll.css
+  Smooth anchor scrolling with reduced-motion fallback. Kept separate to avoid overriding unknown global styles.
+*/
+
+/* Nicer in-page navigation for keyboard and anchor links */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}

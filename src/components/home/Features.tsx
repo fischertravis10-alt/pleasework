@@ -1,6 +1,7 @@
 /**
  * Features - Value propositions and trust indicators for the brand.
  * Color-tuned to match the logo palette (green accents).
+ * Dark mode: high contrast neutrals with preserved green accents.
  */
 
 import { ShieldCheck, Recycle, Truck, Mountain, Headphones } from 'lucide-react'
@@ -15,19 +16,19 @@ export default function Features() {
     { icon: Recycle, title: 'Carbon neutral', desc: 'We offset shipping emissions.' },
   ]
   return (
-    <section id="features" className="bg-[#F4E7C8] py-12">
+    <section className="bg-[#F4E7C8] py-12 dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="text-2xl font-bold text-[#1F3D2B]">Why shop with us</h2>
+        <h2 className="text-2xl font-bold text-[#1F3D2B] dark:text-neutral-100">Why shop with us</h2>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
           {items.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-xl border border-[#E6D8B8] bg-white p-4">
+            <div key={title} className="rounded-xl border border-[#E6D8B8] bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
               <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-[#2F5D3A]/10 p-2">
+                <div className="rounded-lg bg-[#2F5D3A]/10 p-2 dark:bg-[#2F5D3A]/20">
                   <Icon className="h-5 w-5 text-[#2F5D3A]" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-neutral-900">{title}</p>
-                  <p className="text-sm text-neutral-700">{desc}</p>
+                  <p className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{title}</p>
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300">{desc}</p>
                 </div>
               </div>
             </div>

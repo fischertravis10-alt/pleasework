@@ -1,45 +1,41 @@
 /**
  * Brand.tsx
- * Reusable branded logo + wordmark for highcountrygear.shop.
- * Uses provided logo image and links to the home route.
+ * Site-wide brand component that now renders the new animated banner logo.
+ * - Preserves the original API (size, showText, className) for compatibility.
+ * - Ignores showText on purpose so only the new banner appears, as requested.
  */
 
-import { Link } from 'react-router'
+import LogoAnimated from './LogoAnimated'
 
-/** Props for Brand components */
+/** Props for Brand component (kept for compatibility) */
 interface BrandProps {
-  /** Optional: size of the logo square in pixels */
+  /** Height of the banner in px (previously badge size) */
   size?: number
-  /** Optional: show text wordmark next to the logo */
+  /** Kept for compatibility but ignored; we always show only the banner */
   showText?: boolean
-  /** Optional: className for wrapper */
+  /** Optional wrapper className passed to the logo component */
   className?: string
+  /** No longer needed: zoom/crop props removed from usage but kept for compatibility */
+  zoom?: number
+  focusY?: number
 }
 
 /**
- * Brand - Site logo with optional text wordmark.
- * Keeps brand consistent across Header/Footer and other placements.
+ * Brand - Renders the new animated banner logo so brand usage is consistent across the site.
  */
-export default function Brand({ size = 32, showText = true, className = '' }: BrandProps) {
+export default function Brand({
+  size = 32,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  showText = true,
+  className = '',
+}: BrandProps) {
   return (
-    <Link
-      to="/"
-      className={`group inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#2F5D3A] ${className}`}
-      aria-label="highcountrygear.shop home"
-    >
-      {/* Logo image from provided asset */}
-      <img
-        src="https://pub-cdn.sider.ai/u/U08XHOG6875/web-coder/68ba4605cac2f2af6f8348bf/resource/c9e4227f-2b58-4a11-9357-cbe42818e254.png"
-        alt="High Country Gear mountain and trees logo"
-        width={size}
-        height={size}
-        className="rounded-md object-contain"
-      />
-      {showText && (
-        <span className="text-base font-black tracking-tight text-[#1B1B1B]">
-          highcountrygear.shop
-        </span>
-      )}
-    </Link>
+    <LogoAnimated
+      height={size}
+      className={className}
+      // src kept for API compatibility, not used by LogoAnimated anymore
+      src=""
+      ariaLabel="highcountrygear.shop home"
+    />
   )
 }

@@ -1,0 +1,42 @@
+/**
+ * anchors.css
+ * Smooth scrolling (respecting reduced motion), anchor target highlight,
+ * and scroll-margin offset to account for fixed/sticky headers.
+ */
+
+/* Smooth scroll for better orientation */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Respect user reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+/* Visual cue when jumping to an anchor */
+:target {
+  outline: 2px solid #2F5D3A; /* brand forest green */
+  outline-offset: 4px;
+  animation: targetFlash 2s ease-out;
+}
+
+@keyframes targetFlash {
+  0% { background-color: rgba(47, 93, 58, 0.12); }
+  100% { background-color: transparent; }
+}
+
+/* Offset for sticky header height */
+.anchor-target,
+[data-anchor-target] {
+  scroll-margin-top: 88px; /* default header height */
+}
+
+@media (min-width: 768px) {
+  .anchor-target,
+  [data-anchor-target] {
+    scroll-margin-top: 104px; /* slightly larger on md+ */
+  }
+}
